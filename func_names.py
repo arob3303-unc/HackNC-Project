@@ -8,6 +8,8 @@ def draw_w(tractor, camera_x, camera_y) -> None:
 
     WIN.blit(GRASS_IMAGE, (0, 0))
 
+    WIN.blit(HAY_BALE, (100, 100))
+
     WIN.blit(TRACTOR_IMAGE_ONE_EDITED, (tractor.x - camera_x, tractor.y - camera_y, TRACTOR_WIDTH, TRACTOR_HEIGHT))
 
     pygame.display.update()
@@ -21,3 +23,10 @@ def handle_tractor(keys_pressed, tractor):
         tractor.y -= TRACTOR_VEL
     if keys_pressed[pygame.K_s] and tractor.y - TRACTOR_VEL < 875:
         tractor.y += TRACTOR_VEL
+
+class Collectable:
+    def __init__(self, x, y):
+        self.image = HAY_BALE
+        self.rect = self.image.get_rect()
+        self.rect.center = (x, y)
+        self.collected = False

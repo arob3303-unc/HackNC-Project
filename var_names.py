@@ -6,9 +6,11 @@ import os
 # Window Display
 WIDTH, HEIGHT = 1000, 1000
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Tractor Race!")
+pygame.display.set_caption("Collect the Hay Bale!")
 
 GRASS_IMAGE = pygame.image.load(os.path.join('Assets', 'grass.png'))
+HAY_BALE_IMAGE = pygame.image.load(os.path.join('Assets', 'hay_bale.png'))
+HAY_BALE = pygame.transform.scale(HAY_BALE_IMAGE, (35, 35))
 
 WIN_CENTER_x, WIN_CENTER_y = WIDTH // 2, HEIGHT // 2
 WIN_SURFACE = pygame.Surface((WIDTH, HEIGHT))
