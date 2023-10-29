@@ -6,7 +6,7 @@ import os
 # Window Display
 WIDTH, HEIGHT = 1000, 1000
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Collect the Hay Bales!")
+pygame.display.set_caption("Harvest the Hay Bales!")
 
 # IMAGES
 GRASS_IMAGE = pygame.image.load(os.path.join('Assets', 'grass.png'))
