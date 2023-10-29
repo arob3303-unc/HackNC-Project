@@ -80,6 +80,7 @@ def main() -> None:
             if len(hay_bales) < MAX_HAY:
                 hay_bales.append(pygame.Rect(hay_x, hay_y, HAY_WIDTH, HAY_HEIGHT))
 
+        # different score msg depending on score value
         if score < 15:
             winner_text = (f"SCORE: {score}   ->    ONLY {score}???")
         elif score < 30:
@@ -91,34 +92,37 @@ def main() -> None:
         # heart system top right
         if health == 3:
             WIN.blit(FULL_HEART, (925, 10))
-            WIN.blit(FULL_HEART, (875, 10))
+            WIN.blit(FULL_HEART, (875, 10))  # 3 hearts
             WIN.blit(FULL_HEART, (825, 10))
         if health == 2:
             WIN.blit(FULL_HEART, (925, 10))
-            WIN.blit(FULL_HEART, (875, 10))
+            WIN.blit(FULL_HEART, (875, 10))  # 2 hearts
             WIN.blit(EMPTY_HEART, (825, 10))
         if health == 1:
             WIN.blit(FULL_HEART, (925, 10))
-            WIN.blit(EMPTY_HEART, (875, 10))
+            WIN.blit(EMPTY_HEART, (875, 10))  # 1 heart
             WIN.blit(EMPTY_HEART, (825, 10))
         if health == 0:
             WIN.blit(EMPTY_HEART, (925, 10))
-            WIN.blit(EMPTY_HEART, (875, 10))
+            WIN.blit(EMPTY_HEART, (875, 10))  # 0 hearts
             WIN.blit(EMPTY_HEART, (825, 10))
 
 
 
 
-        
+        # key system
         keys_pressed = pygame.key.get_pressed()
         handle_tractor(keys_pressed, tractor)
+
+        # draw function
         draw_w(tractor, camera_x, camera_y, score)
 
+        # ends game when health equals 0
         if health == 0:
             draw_winner(winner_text)
             break
 
-    main()
+    main()  # restarts game after health equals 0 after delay time
 
 
 if __name__ == "__main__":
